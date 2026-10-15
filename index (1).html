@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10253d">
+  <meta name="description" content="Halaman utama Bengkel Analitik Data Berbantukan AI: pendaftaran peserta dan panduan 9 demo latihan.">
+  <title>AI Data Workshop · Bengkel Analitik Data Berbantukan AI</title>
+  <style>
+    :root{--navy:#10253d;--navy2:#174858;--teal:#147f7b;--teal-light:#e8f5f2;--paper:#f5f7fa;--ink:#18283a;--muted:#607287;--line:#e1e8ef;--white:#fff}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);font-family:Inter,"Segoe UI",Arial,sans-serif;color:var(--ink);font-size:16px;line-height:1.65}
+    a{color:inherit}a:focus-visible{outline:3px solid #67dbcf;outline-offset:4px}
+    .layout{display:flex;min-height:100vh}
+    .sidebar{width:285px;flex-shrink:0;background:var(--navy);color:#fff;padding:28px 19px;display:flex;flex-direction:column;gap:26px}
+    .brand{display:flex;align-items:center;gap:12px;padding:0 5px 22px;border-bottom:1px solid #ffffff2a}
+    .brand-icon{width:56px;height:56px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:transparent}
+    .brand-icon img{display:block;width:100%;height:100%;object-fit:contain}
+    .brand strong{display:block;font-size:18px;letter-spacing:-.3px;line-height:1.3}
+    .brand small{display:block;color:#c0d5e0;font-size:14px;line-height:1.5;margin-top:3px}
+    .eyebrow-side{display:inline-flex;align-self:start;padding:7px 12px;border:1px solid #ffffff38;border-radius:40px;color:#d7e7ef;background:#ffffff13;font-size:13px}
+    .sidebar nav{display:grid;gap:7px}
+    .sidebar nav a{font-size:16px;text-decoration:none;color:#d8e7ef;display:block;border-radius:10px;padding:12px 14px}
+    .sidebar nav a:hover,.sidebar nav a.active{background:#ffffff1b;color:white}
+    .sidebar-note{margin-top:auto;border-top:1px solid #ffffff2a;padding:20px 10px 0;font-size:14px;color:#c1d4df}
+    .page{flex:1;min-width:0}
+    .topbar{background:#fff;border-bottom:1px solid var(--line);min-height:76px;padding:18px clamp(20px,4vw,65px);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    .topbar .label{font-size:14px;color:#51697c;font-weight:800;letter-spacing:.5px}
+    .topbar .hint{font-size:14px;color:var(--muted)}
+    main{width:min(1220px,100%);margin:auto;padding:34px clamp(20px,4vw,65px) 50px}
+    .hero{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:30px;align-items:center;border-radius:22px;padding:clamp(27px,4vw,47px);background:linear-gradient(112deg,#12324c 0%,#174858 62%,#136c71 100%);color:white;box-shadow:0 14px 35px #10253d13}
+    .kicker{font-size:14px;color:#a0eede;font-weight:800;letter-spacing:1.1px;text-transform:uppercase}
+    h1{font-size:clamp(31px,3.4vw,44px);line-height:1.16;letter-spacing:-.8px;margin:13px 0 16px}
+    .hero p{color:#dfedf0;font-size:17px;line-height:1.75;max-width:720px;margin:0 0 22px}
+    .cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;text-decoration:none;background:#f7ffff;color:#14535c;font-size:17px;font-weight:850;padding:16px 22px;border-radius:12px;box-shadow:0 5px 18px #001f2538;transition:transform .15s,background .15s}
+    .cta:hover{background:#e8fff8;transform:translateY(-1px)}
+    .side-card{background:#ffffff15;border:1px solid #ffffff3c;padding:25px;border-radius:17px}
+    .side-card strong{display:block;font-size:27px;line-height:1.2;margin-bottom:12px}
+    .side-card span{display:block;font-size:15px;color:#e2f2f1;margin-top:8px}
+    .small-note{font-size:14px;color:#d8eeee;margin-top:16px}
+    .notice{margin:20px 0 27px;background:#fff8e8;color:#705823;border:1px solid #f0e0bd;padding:16px 19px;border-radius:12px;font-size:15px}
+    .section-heading{font-size:25px;line-height:1.3;margin:26px 0 8px}
+    .section-intro{color:var(--muted);font-size:16px;margin:0 0 18px}
+    .modules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .module{border:1px solid var(--line);background:#fff;border-radius:17px;padding:23px;box-shadow:0 8px 22px #10253d08}
+    .module .number{display:inline-flex;background:var(--teal-light);color:#0b6c68;border-radius:9px;padding:7px 11px;font-size:14px;font-weight:800}
+    .module h3{font-size:20px;margin:17px 0 8px;line-height:1.3}
+    .module p{font-size:16px;color:var(--muted);margin:0}
+    .card{margin-top:20px;background:#fff;border:1px solid var(--line);border-radius:17px;padding:25px}
+    .card h2{font-size:23px;margin:0 0 14px}
+    .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .step{display:flex;align-items:flex-start;gap:10px;color:#395468;font-size:16px}
+    .step b{border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#e8f5f2;color:#0b6c68;width:32px;height:32px}
+    .links{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .resource{display:inline-flex;align-items:center;gap:8px;color:#0b6c68;font-weight:750;text-decoration:none;background:#edf8f6;border:1px solid #cce8e1;padding:10px 15px;border-radius:10px;font-size:15px}
+    .resource:hover{text-decoration:underline}
+    .privacy{margin-top:20px;background:#eff5f9;border-left:4px solid #3e8196;padding:14px 18px;border-radius:0 11px 11px 0;color:#405a6c;font-size:15px}
+    footer{padding:25px 5px 0;text-align:center;font-size:14px;color:#6e8292}
+    @media(max-width:1050px){.sidebar{width:255px}.hero{grid-template-columns:1fr}.side-card{max-width:500px}.modules{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr}}
+    @media(max-width:700px){.layout{display:block}.sidebar{width:auto;padding:17px 20px;gap:11px}.brand{padding:0 0 12px}.brand-icon{width:48px;height:48px}.brand strong{font-size:17px}.brand small{font-size:13px}.eyebrow-side,.sidebar nav,.sidebar-note{display:none}.topbar{min-height:0;padding:13px 20px}.topbar .hint{display:none}main{padding:18px 15px 35px}.hero{padding:26px 22px;gap:20px}.hero p{font-size:16px}.cta{width:100%;text-align:center}.modules{grid-template-columns:1fr}.side-card{padding:18px}.section-heading{font-size:23px}.card{padding:20px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta{transition:none}}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Navigasi laman bengkel">
+      <div class="brand"><div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Coat_of_arms_of_Malaysia.svg" alt="Jata Negara Malaysia"></div><div><strong>AI DATA WORKSHOP</strong><small>Panduan Bengkel Interaktif</small></div></div>
+      <span class="eyebrow-side">● Versi demonstrasi awam</span>
+      <nav aria-label="Bahagian halaman"><a class="active" href="#mula">Mula Bengkel</a><a href="#modul">Modul Latihan</a><a href="#panduan">Panduan Peserta</a><a href="#bahan">Bahan Latihan</a></nav>
+      <p class="sidebar-note">Bahan menggunakan data agregat terbuka dan simulasi untuk tujuan pembelajaran.<br><strong>Bukan portal rasmi Kerajaan Malaysia.</strong></p>
+    </aside>
+    <div class="page">
+      <header class="topbar"><span class="label">PANDUAN BENGKEL LANGSUNG <span aria-hidden="true">/</span> GEMINI</span><span class="hint">3 modul · 9 demo praktikal</span></header>
+      <main>
+        <section class="hero" id="mula">
+          <div>
+            <div class="kicker">Bengkel praktikal · Analitik Data & AI</div>
+            <h1>Daripada Data Mentah ke Dashboard Interaktif</h1>
+            <p>Selamat datang! Daftar dengan nama dan bahagian/agensi untuk mengikuti 9 demo latihan. Kemajuan anda akan direkodkan supaya trainer boleh memantau perjalanan bengkel.</p>
+            <a class="cta" href="https://script.google.com/macros/s/AKfycbz3ZkeVk-5lcSflOP0rG03gzFc9_M7tTqg8pirvhNsjpgDOKxbw3XTAXCWD7nCfWz9ZAA/exec" target="_blank" rel="noopener noreferrer" aria-label="Daftar Peserta dan Mulakan Bengkel, buka di tab baharu">Daftar Peserta &amp; Mulakan Bengkel <span aria-hidden="true">↗</span></a>
+            <div class="small-note">Tiada akaun atau password diperlukan. Pendaftaran dibuka mengikut arahan trainer.</div>
+          </div>
+          <aside class="side-card" aria-label="Ringkasan latihan"><strong>9 Demo Praktikal</strong><span>01 · Pembersihan Data</span><span>02 · Analisis Data</span><span>03 · Dashboard Interaktif</span><span style="margin-top:18px;font-size:14px">Ikuti setiap langkah bersama trainer.</span></aside>
+        </section>
+        <div class="notice"><strong>Nota penting:</strong> Semua bahan latihan ialah data terbuka yang diubah dengan isu rekaan. Hasil Gemini mesti disemak dan tidak boleh dianggap sebagai statistik rasmi KDN. Jangan muat naik data sulit atau peribadi ke platform AI tanpa kebenaran.</div>
+        <section id="modul"><h2 class="section-heading">Apa yang akan dipelajari?</h2><p class="section-intro">Tiga modul, daripada penyediaan data sehingga dashboard yang boleh digunakan untuk latihan.</p>
+          <div class="modules"><article class="module"><span class="number">MODUL 01</span><h3>Pembersihan Data</h3><p>Audit masalah data, bersihkan dataset dan sahkan kesediaan data sebelum analisis.</p></article><article class="module"><span class="number">MODUL 02</span><h3>Analisis Data</h3><p>Kira statistik utama, terokai trend dan hasilkan nota pengurusan berasaskan data.</p></article><article class="module"><span class="number">MODUL 03</span><h3>Dashboard Interaktif</h3><p>Sediakan data dashboard, bina paparan dalam Gemini Canvas dan uji hasilnya.</p></article></div>
+        </section>
+        <section class="card" id="panduan"><h2>3 langkah untuk bermula</h2><div class="steps"><div class="step"><b>1</b><span>Klik <strong>Daftar Peserta &amp; Mulakan Bengkel</strong>.</span></div><div class="step"><b>2</b><span>Isi <strong>Nama Penuh</strong> dan <strong>Bahagian/Agensi</strong>.</span></div><div class="step"><b>3</b><span>Ikuti 9 demo dan tandakan langkah selesai selepas semakan trainer.</span></div></div></section>
+        <section class="card" id="bahan"><h2>Bahan dan pautan berguna</h2><p class="section-intro">Bahan latihan boleh dibuka sebelum sesi bermula.</p><div class="links"><a class="resource" href="./data/arrivals_soe_DIRTY_DEMO.csv" download>↓ Muat turun dataset latihan (CSV)</a><a class="resource" href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer">↗ Buka Gemini</a><a class="resource" href="https://data.gov.my/data-catalogue/arrivals_soe" target="_blank" rel="noopener noreferrer">↗ Sumber data asal</a></div></section>
+        <div class="privacy"><strong>Privasi peserta:</strong> Nama, bahagian/agensi serta status penyelesaian demo direkodkan untuk pemantauan bengkel oleh trainer. Penyertaan dan kemajuan latihan tidak dipaparkan secara awam. Sila rujuk urus setia berkenaan penggunaan dan tempoh simpanan rekod.</div>
+        <footer>Bahan latihan awam · Data simulasi · Bukan laman rasmi Kerajaan Malaysia</footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
